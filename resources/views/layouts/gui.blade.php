@@ -19,7 +19,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{ url() }}" class="logo"><b>Ng</b>antor</a>
+        <a href="{{ url('') }}" class="logo"><b>Ng</b>antor</a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
@@ -67,20 +67,9 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
 				<li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url('home') }}"><i class="fa fa-dashboard"></i> Beranda</a></li>
-				<li class="{{ Request::is('obat*') ? 'active' : '' }}"><a href="{{ url('obat') }}"><i class="fa fa-medkit"></i> Obat-Obatan</a></li>
-				@can('admin-access')
-				<li class="{{ Request::is('user*') ? 'active' : '' }}"><a href="{{ url('user') }}"><i class="fa fa-group"></i> Operator</a></li>
-                <li class="treeview {{ Request::is('atur*') ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-wrench"></i> <span>Pengaturan</span> <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="{{ Request::is('atur/kategori*') ? 'active' : '' }}"><a href="{{ url('atur/kategori') }}"><i class="fa fa-circle-o"></i> Kategori Obat</a></li>
-                        <li class="{{ Request::is('atur/satuan*') ? 'active' : '' }}"><a href="{{ url('atur/satuan') }}"><i class="fa fa-circle-o"></i> Satuan Obat</a></li>
-                    </ul>
-                </li>
-				@endcan
+				<li class="{{ Request::is('pegawai*') ? 'active' : '' }}"><a href="{{ url('pegawai') }}"><i class="fa fa-users"></i> Pegawai</a></li>
             </ul>
+
         </section>
         <!-- /.sidebar -->
     </aside>
