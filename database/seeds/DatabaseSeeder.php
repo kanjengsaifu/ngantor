@@ -63,8 +63,12 @@ class UsersTableSeeder extends Seeder {
     {
         DB::table('users')->delete();
 
-        User::create(array('name'=>'Administrator', 'email'=>'admin@ngantor.com', 'password'=> Hash::make('admin02')));
-        User::create(array('name'=>'Wirasto Karim', 'email'=>'wirasto@ngantor.com', 'password'=> Hash::make('wirasto')));
-        User::create(array('name'=>'Lisa Kawaii', 'email'=>'lisa@ngantor.com', 'password'=> Hash::make('lisa02')));
+		$id_jabatan = Jabatan::where('name', '=', 'Kepala Kantor')->firstOrFail();
+        User::create(array('name'=>'Administrator', 'email'=>'admin@ngantor.com', 'password'=>Hash::make('admin02'), 'id_jabatan'=>$id_jabatan->id));
+
+		$id_divisi = Divisi::where('name', '=', 'Umum')->firstOrFail();
+		$id_jabatan = Jabatan::where('name', '=', 'Staff')->firstOrFail();
+        User::create(array('name'=>'Wirasto Karim', 'email'=>'wirasto@ngantor.com', 'password'=> Hash::make('wirasto'), 'id_divisi'=>$id_divisi->id, 'id_jabatan'=>$id_jabatan->id));
+        User::create(array('name'=>'Lisa Kawaii', 'email'=>'lisa@ngantor.com', 'password'=> Hash::make('lisa02'), 'id_divisi'=>$id_divisi->id, 'id_jabatan'=>$id_jabatan->id));
     }
 }

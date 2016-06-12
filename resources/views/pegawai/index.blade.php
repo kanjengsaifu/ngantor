@@ -28,6 +28,8 @@ Pegawai
 			<th>NO</th>
 			<th>NAMA LENGKAP</th>
 			<th>EMAIL</th>
+			<th>DIVISI</th>
+			<th>JABATAN</th>
 			<th></th>
 		</tr>
 		</thead>
@@ -36,13 +38,15 @@ Pegawai
 			<td>{{ $row_number++ }}</td>
 			<td>{{ $item->name }}</td>
 			<td>{{ $item->email }}</td>
+			<td>{{ isset($item->divisi) ? $item->divisi->name : '-'  }}</td>
+			<td>{{ $item->jabatan->name }}</td>
 			<td>
 				<a class='btn btn-xs btn-default' href='{{ url("pegawai/form/$item->id") }}' title=Ubah><i class='fa fa-pencil'></i></a>
 				<a class='btn btn-xs btn-danger' href='{{ url("pegawai/delete/$item->id") }}' title=Hapus onClick="return confirm('Hapus?');"><i class='fa fa-trash-o'></i></a>
 			</td>
 		</tr>
 		@empty
-		<tr><td colspan='4'>Masih kosong</td></tr>
+		<tr><td colspan='6'>Masih kosong</td></tr>
 		@endforelse
 		</table>
 	</div>

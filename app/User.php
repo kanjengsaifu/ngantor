@@ -102,4 +102,21 @@ class User extends Authenticatable
     {
         return ! empty($this->valid_errors);
     }
+
+
+	/**
+	 * relasi data
+	 */
+	function divisi()
+	{
+		// many2one
+		return $this->belongsTo('App\Divisi', 'id_divisi', 'id');
+	}
+
+	function jabatan()
+	{
+		// many2one
+		return $this->belongsTo('App\Jabatan', 'id_jabatan', 'id');
+	}
+
 }
