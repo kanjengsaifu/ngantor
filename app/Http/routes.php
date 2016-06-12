@@ -27,4 +27,12 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('save', 'Pegawai\PegawaiController@save');
 		Route::get('delete/{id}', 'Pegawai\PegawaiController@delete')->where('id', '[0-9]+');
 	});
+
+
+	//Me
+	Route::group(['prefix' => 'me'], function () {
+		Route::get('pwd', 'Me\ChPwdController@index');
+		Route::post('pwd', 'Me\ChPwdController@save');
+	});
+
 });
