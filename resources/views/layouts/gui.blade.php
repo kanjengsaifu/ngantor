@@ -65,9 +65,13 @@
 
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
 				<li class="{{ Request::is('home') ? 'active' : '' }}"><a href="{{ url('home') }}"><i class="fa fa-dashboard"></i> Beranda</a></li>
-				<li class="{{ Request::is('pegawai*') ? 'active' : '' }}"><a href="{{ url('pegawai') }}"><i class="fa fa-users"></i> Pegawai</a></li>
+
+				<li class="header">PEGAWAI</li>
+				<li class="{{ Request::is('pegawai*') ? 'active' : '' }}"><a href="{{ url('pegawai') }}"><i class="fa fa-users"></i> Daftar</a></li>
+
+				<li class="header">SURAT</li>
+				<li><a href="#"><i class="fa fa-envelope"></i> Kotak Surat</a></li>
             </ul>
 
         </section>
