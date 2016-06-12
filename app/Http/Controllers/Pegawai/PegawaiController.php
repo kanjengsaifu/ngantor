@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Pegawai;
 
-use App\User;
 use Hash;
 use Illuminate\Http\Request;
+
+use App\User;
+use App\Divisi;
+use App\Jabatan;
 
 
 class PegawaiController extends Controller
@@ -31,6 +34,8 @@ class PegawaiController extends Controller
 	{
 		return view('pegawai.form', [
 			'data' => User::find($id),
+			'divisi' => Divisi::all(),
+			'jabatan' => Jabatan::all(),
 		]);
 	}
 
@@ -66,6 +71,12 @@ class PegawaiController extends Controller
 			}
 			$u->name = $request->input('name');
 			$u->email = $request->input('email');
+			if ($request->has('id_divisi')) {
+				$u->id_divisi = $request->input('id_divisi');
+			} else {
+				$u->id_divisi = NULL;
+			}
+			$u->id_jabatan = $request->input('id_jabatan');
 			$u->save();
 
 			if ($u->hasErrors()) {

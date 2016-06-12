@@ -50,7 +50,46 @@ Pegawai
 				<small><em class='text-muted'>Kosongkan password jika tidak ingin diganti</em></small>
 				@endif
 			</div>
+
+			@if ($errors->has('id_divisi'))
+			<div class="form-group has-warning">
+			@else
+			<div class="form-group">
+			@endif
+				<label>Divisi</label>
+				@if ($errors->has('id_divisi')) <em class="text-muted">{{ $errors->first('id_divisi') }}</em>@endif
+				<select class="form-control" name=id_divisi>
+					<option value=''>-</option>
+					@foreach($divisi as $item)
+						@if (((isset($data->id_divisi) && $data->id_divisi == $item->id)) or (old('id_divisi') == $item->id))
+							<option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+						@else
+							<option value="{{ $item->id }}">{{ $item->name }}</option>
+						@endif
+					@endforeach
+				</select>
+            </div>
+
+			@if ($errors->has('id_jabatan'))
+			<div class="form-group has-warning">
+			@else
+			<div class="form-group">
+			@endif
+				<label>Jabatan</label>
+				@if ($errors->has('id_jabatan')) <em class="text-muted">{{ $errors->first('id_jabatan') }}</em>@endif
+				<select class="form-control" name=id_jabatan>
+					<option value=''>- Pilih -</option>
+					@foreach($jabatan as $item)
+						@if (((isset($data->id_jabatan) && $data->id_jabatan == $item->id)) or (old('id_jabatan') == $item->id))
+							<option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+						@else
+							<option value="{{ $item->id }}">{{ $item->name }}</option>
+						@endif
+					@endforeach
+				</select>
+            </div>
 		</div>
+
 		<div class='box-footer'>
 			<button type=submit class='btn btn-primary'>Simpan</button>
 		</div>

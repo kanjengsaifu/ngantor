@@ -34,6 +34,7 @@ class User extends Authenticatable
 			'email.unique' => 'Alamat email sudah digunakan orang lain',
 			'password.required' => 'Masukkan password',
 			'password.min' => 'Password minimal 6 karakter',
+			'id_jabatan.required' => 'Pilih jabatan',
 		];
 
 
@@ -81,7 +82,8 @@ class User extends Authenticatable
 		return [
 			'name' => 'required',
 			'email' => 'required|email|unique:users'. ($this->id ? ",id,$this->id" : ''),
-			'password' => 'sometimes|min:6'
+			'password' => 'sometimes|min:6',
+			'id_jabatan' => 'required',
 		];
 	}
 
