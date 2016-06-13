@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Pegawai;
 use Hash;
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Divisi;
-use App\Jabatan;
+use App\Models\User;
+use App\Models\Divisi;
+use App\Models\Jabatan;
 
 
 class PegawaiController extends Controller
