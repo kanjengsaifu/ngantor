@@ -1,4 +1,4 @@
-# gantor
+# ngantor
 
 Aplikasi untuk perkantoran *a.k.a* **Sistem Informasi Tata Usaha**
 
