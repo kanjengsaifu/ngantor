@@ -5,9 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Hash;
 
-use App\Divisi;
-use App\Jabatan;
-use App\User;
+use App\Models\Divisi;
+use App\Models\Jabatan;
+use App\Models\User;
+
+use App\Models\Surat\Sifat;
+use App\Models\Surat\Status;
 
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call(DivisiTableSeeder::class);
         $this->call(JabatanTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+
+        $this->call(MsSifatTableSeeder::class);
+        $this->call(MsStatusTableSeeder::class);
 
         Model::reguard();
     }
@@ -70,5 +76,32 @@ class UsersTableSeeder extends Seeder {
 		$id_jabatan = Jabatan::where('name', '=', 'Staff')->firstOrFail();
         User::create(array('name'=>'Wirasto Karim', 'email'=>'wirasto@ngantor.com', 'password'=> Hash::make('wirasto'), 'id_divisi'=>$id_divisi->id, 'id_jabatan'=>$id_jabatan->id));
         User::create(array('name'=>'Lisa Kawaii', 'email'=>'lisa@ngantor.com', 'password'=> Hash::make('lisa02'), 'id_divisi'=>$id_divisi->id, 'id_jabatan'=>$id_jabatan->id));
+    }
+}
+
+
+class MsSifatTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ms_sifat')->delete();
+
+        Sifat::create(array('name'=>'Umum'));
+        Sifat::create(array('name'=>'Rahasia'));
+        Sifat::create(array('name'=>'Edaran'));
+    }
+}
+
+
+class MsStatusTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ms_status')->delete();
+
+        Status::create(array('name'=>'Baru Masuk', 'type'=> 1));
+        Status::create(array('name'=>'Sedang Diproses', 'type'=> 0));
+        Status::create(array('name'=>'Diarsipkan', 'type'=> 2));
+        Status::create(array('name'=>'Diabaikan', 'type'=> 2));
     }
 }
