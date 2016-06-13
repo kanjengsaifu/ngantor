@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\InboxController@index');
 			Route::get('form/{id?}', 'Surat\InboxController@form')->where('id', '[0-9]+');
 			Route::post('save', 'Surat\InboxController@save');
+			Route::get('delete/{id}', 'Surat\InboxController@delete')->where('id', '[0-9]+');
 		});
 
 	});

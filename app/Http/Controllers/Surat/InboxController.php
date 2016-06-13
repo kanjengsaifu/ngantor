@@ -67,4 +67,20 @@ class InboxController extends Controller
 		return redirect()->intended('surat/inbox');
 	}
 
+
+	function delete($id)
+	{
+		$del = Masuk::find($id);
+
+		try {
+			if ($del) {
+				$del->delete();
+			}
+
+		} catch (\Exception $ex) {
+		}
+
+		return redirect()->intended('surat/inbox');
+	}
+
 }
