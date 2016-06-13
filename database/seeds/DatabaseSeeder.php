@@ -11,6 +11,7 @@ use App\Models\User;
 
 use App\Models\Surat\Sifat;
 use App\Models\Surat\Status;
+use App\Models\Surat\Masuk;
 
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(MsSifatTableSeeder::class);
         $this->call(MsStatusTableSeeder::class);
+        $this->call(MsMasukTableSeeder::class);
 
         Model::reguard();
     }
@@ -103,5 +105,35 @@ class MsStatusTableSeeder extends Seeder {
         Status::create(array('name'=>'Sedang Diproses', 'type'=> 0));
         Status::create(array('name'=>'Diarsipkan', 'type'=> 2));
         Status::create(array('name'=>'Diabaikan', 'type'=> 2));
+    }
+}
+
+class MsMasukTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ms_masuk')->delete();
+
+		$id_sifat = Sifat::where('name', '=', 'Umum')->firstOrFail();
+		$id_status = Status::where('type', '=', '1')->firstOrFail();
+		$id_user = User::where('email', '=', 'admin@ngantor.com')->firstOrFail();
+
+        Masuk::create(array(
+			'nomor'=> 'S001',
+			'id_sifat'=> $id_sifat->id,
+			'perihal'=> 'Mencoba fitur surat masuk',
+			'asal'=> 'Olongia IT Solution',
+			'id_status'=> $id_status->id,
+			'id_user'=> $id_user->id,
+		));
+
+		Masuk::create(array(
+			'nomor'=> 'S002',
+			'id_sifat'=> $id_sifat->id,
+			'perihal'=> 'Tawaran Kerja Sama',
+			'asal'=> 'Microsoft Antahberantah',
+			'id_status'=> $id_status->id,
+			'id_user'=> $id_user->id,
+		));
     }
 }
