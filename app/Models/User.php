@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -112,13 +112,13 @@ class User extends Authenticatable
 	function divisi()
 	{
 		// many2one
-		return $this->belongsTo('App\Divisi', 'id_divisi', 'id');
+		return $this->belongsTo('App\Models\Divisi', 'id_divisi', 'id');
 	}
 
 	function jabatan()
 	{
 		// many2one
-		return $this->belongsTo('App\Jabatan', 'id_jabatan', 'id');
+		return $this->belongsTo('App\Models\Jabatan', 'id_jabatan', 'id');
 	}
 
 }
