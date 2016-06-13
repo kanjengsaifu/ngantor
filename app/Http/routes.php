@@ -16,9 +16,11 @@ Route::get('/', 'LoginController@index');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/logout', 'LogoutController@index');
 	Route::get('/home', 'HomeController@index');
+
 
 	//Pegawai
 	Route::group(['prefix' => 'pegawai'], function () {
@@ -28,10 +30,19 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('delete/{id}', 'Pegawai\PegawaiController@delete')->where('id', '[0-9]+');
 	});
 
+
 	//Surat
 	Route::group(['prefix' => 'surat'], function () {
-		Route::match(['get', 'post'], 'inbox', 'Surat\InboxController@index');
+
+		//Inbox
+		Route::group(['prefix' => 'inbox'], function () {
+			Route::match(['get', 'post'], '/', 'Surat\InboxController@index');
+			Route::get('form/{id?}', 'Surat\InboxController@form')->where('id', '[0-9]+');
+			Route::post('save', 'Surat\InboxController@save');
+		});
+
 	});
+
 
 	//Me
 	Route::group(['prefix' => 'me'], function () {

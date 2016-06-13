@@ -16,8 +16,8 @@ class CreateMsMasukTable extends Migration
             $table->increments('id');
 			$table->string('nomor')->unique();
 			$table->integer('id_sifat')->unsigned();
-			$table->string('perihal');
 			$table->string('asal');
+			$table->string('perihal');
 			$table->integer('id_status')->unsigned();
 			$table->integer('id_user')->unsigned();
             $table->timestamps();
