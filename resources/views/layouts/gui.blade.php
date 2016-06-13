@@ -71,7 +71,7 @@
 				<li class="{{ Request::is('pegawai*') ? 'active' : '' }}"><a href="{{ url('pegawai') }}"><i class="fa fa-users"></i> Daftar</a></li>
 
 				<li class="header">SURAT</li>
-				<li><a href="#"><i class="fa fa-envelope"></i> Kotak Surat</a></li>
+				<li class="{{ Request::is('surat/inbox*') ? 'active' : '' }}"><a href="{{ url('surat/inbox') }}"><i class="fa fa-envelope"></i> Kotak Surat</a></li>
             </ul>
 
         </section>

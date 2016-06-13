@@ -28,6 +28,10 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('delete/{id}', 'Pegawai\PegawaiController@delete')->where('id', '[0-9]+');
 	});
 
+	//Surat
+	Route::group(['prefix' => 'surat'], function () {
+		Route::match(['get', 'post'], 'inbox', 'Surat\InboxController@index');
+	});
 
 	//Me
 	Route::group(['prefix' => 'me'], function () {
