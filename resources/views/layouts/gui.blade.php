@@ -13,7 +13,7 @@
     <link href="{{ asset('vendor/adminLTE/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('vendor/adminLTE/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css"/>
 </head>
-<body class="skin-blue">
+<body class="skin-red">
 
 <div class="wrapper">
 
