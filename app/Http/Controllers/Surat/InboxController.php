@@ -14,7 +14,7 @@ class InboxController extends Controller
 
 	function index(Request $request)
 	{
-		$data = Masuk::where('id_user', '=', Auth::User()->id);
+		$data = Masuk::MyInbox();
 		if ($request->has('cari')) {
 			$c = $request->input('cari');
 			$data = $data->where('perihal', 'LIKE', "%$c%");

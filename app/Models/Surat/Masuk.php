@@ -2,6 +2,7 @@
 
 namespace App\Models\Surat;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Masuk extends Model
@@ -104,5 +105,11 @@ class Masuk extends Model
 	function user()
 	{
 		return $this->belongsTo('App\Models\User', 'id_user', 'id');
+	}
+
+
+	function scopeMyInbox($query)
+	{
+		return $query->where('id_user', '=', Auth::User()->id)->where('id_status', '<', '2');
 	}
 }
