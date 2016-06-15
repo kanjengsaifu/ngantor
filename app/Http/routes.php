@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 		//Inbox
 		Route::group(['prefix' => 'inbox'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\InboxController@index');
+			Route::get('form/{type}/{id}', 'Surat\InboxController@form')->where('type', '[02]')->where('id', '[0-9]+');
+			Route::post('save_forward', 'Surat\InboxController@save_forward');
 		});
 
 		//Inbox

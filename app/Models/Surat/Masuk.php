@@ -17,6 +17,8 @@ class Masuk extends Model
 			'id_sifat.required' => 'Pilih sifat surat',
 			'asal.required' => 'Masukkan asal surat',
 			'perihal.required' => 'Masukkan perihal surat',
+			'id_status.required' => 'Pilih status surat',
+			'id_user.required' => 'Pilih tujuan surat',
 		];
 
 

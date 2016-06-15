@@ -52,8 +52,8 @@ Surat
 				@endif
 			</td>
 			<td>
-				<a class='btn btn-xs btn-default' href='{{ url("surat/inbox/form_forward/$item->id") }}' title='Teruskan'><i class='fa fa-envelope'></i></a>
-				<a class='btn btn-xs btn-danger' href='{{ url("surat/inbox/form_finish/$item->id") }}' title='Eksekusi Akhir'><i class='fa fa-envelope'></i></a>
+				<a class='btn btn-xs btn-default' href='{{ url("surat/inbox/form/0/$item->id") }}' title='Teruskan'><i class='fa fa-envelope'></i></a>
+				<a class='btn btn-xs btn-danger' href='{{ url("surat/inbox/form/2/$item->id") }}' title='Eksekusi Akhir'><i class='fa fa-envelope'></i></a>
 			</td>
 		</tr>
 		@empty
