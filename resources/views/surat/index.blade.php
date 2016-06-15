@@ -30,6 +30,8 @@ Surat
 			<th>SIFAT</th>
 			<th>ASAL</th>
 			<th>PERIHAL</th>
+			<th>POSISI</th>
+			<th>STATUS</th>
 			<th></th>
 		</tr>
 		</thead>
@@ -39,13 +41,23 @@ Surat
 			<td>{{ $item->sifat->name }}</td>
 			<td>{{ $item->asal }}</td>
 			<td>{{ $item->perihal }}</td>
+			<td>{{ $item->user->name }}</td>
+			<td>
+				@if ($item->status->type == 1)
+					<label class='label label-primary'>{{ $item->status->name }}</label>
+				@elseif ($item->status->type == 2)
+					<label class='label label-success'>{{ $item->status->name }}</label>
+				@else
+					<label class='label label-info'>{{ $item->status->name }}</label>
+				@endif
+			</td>
 			<td>
 				<a class='btn btn-xs btn-default' href='{{ url("surat/inbox/form/$item->id") }}' title=Ubah><i class='fa fa-pencil'></i></a>
 				<a class='btn btn-xs btn-danger' href='{{ url("surat/inbox/delete/$item->id") }}' title=Hapus onClick="return confirm('Hapus?');"><i class='fa fa-trash-o'></i></a>
 			</td>
 		</tr>
 		@empty
-		<tr><td colspan='5'>Masih kosong</td></tr>
+		<tr><td colspan='7'>Masih kosong</td></tr>
 		@endforelse
 		</table>
 	</div>

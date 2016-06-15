@@ -93,4 +93,14 @@ class Masuk extends Model
 	{
 		return $this->belongsTo('App\Models\Surat\Sifat', 'id_sifat', 'id');
 	}
+
+	function status()
+	{
+		return $this->belongsTo('App\Models\Surat\Status', 'id_status', 'id');
+	}
+
+	function user()
+	{
+		return $this->belongsTo('App\Models\User', 'id_user', 'id');
+	}
 }
