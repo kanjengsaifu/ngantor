@@ -66,4 +66,24 @@ class InboxController extends Controller
 		return redirect()->intended('surat/inbox');
 	}
 
+
+	function save_finish(Request $request)
+	{
+		try {
+			$id = $request->input('id');
+			$u = Masuk::find( $id );
+			$u->id_status = $request->input('id_status');
+			$u->save();
+
+			if ($u->hasErrors()) {
+				return redirect("surat/inbox/form/2/$id")->withErrors($u->getErrors())->withInput();
+			}
+
+		} catch (\Exception $ex) {
+			return redirect("surat/inbox/form/2/$id")->with('error', $ex->getMessage());
+		}
+
+		return redirect()->intended('surat/inbox');
+	}
+
 }
