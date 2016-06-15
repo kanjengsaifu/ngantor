@@ -1,8 +1,7 @@
 @extends('layouts.gui')
 
 @section('title')
-Surat
-<small>Kotak Surat</small>
+Surat Masuk
 @endsection
 
 
@@ -12,13 +11,13 @@ Surat
 	<div class='box-header'>
 		<div class='row'>
 			<div class='col-sm-6'>
-				<form method=post action="{{ url('surat/inbox') }}">
+				<form method=post action="{{ url('surat/masuk') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type=text name=cari class='form-control input-sm inline' value="{{ $cari or '' }}" placeholder='Search'>
 				</form>
 			</div>
 			<div class='col-sm-6 text-right'>
-				<a class='btn btn-sm btn-primary' href="{{ url('surat/inbox/form') }}"><i class='fa fa-plus'></i> Tambah</a>
+				<a class='btn btn-sm btn-primary' href="{{ url('surat/masuk/form') }}"><i class='fa fa-plus'></i> Tambah</a>
 			</div>
 		</div>
 	</div>
@@ -52,8 +51,8 @@ Surat
 				@endif
 			</td>
 			<td>
-				<a class='btn btn-xs btn-default' href='{{ url("surat/inbox/form/$item->id") }}' title=Ubah><i class='fa fa-pencil'></i></a>
-				<a class='btn btn-xs btn-danger' href='{{ url("surat/inbox/delete/$item->id") }}' title=Hapus onClick="return confirm('Hapus?');"><i class='fa fa-trash-o'></i></a>
+				<a class='btn btn-xs btn-default' href='{{ url("surat/masuk/form/$item->id") }}' title=Ubah><i class='fa fa-pencil'></i></a>
+				<a class='btn btn-xs btn-danger' href='{{ url("surat/masuk/delete/$item->id") }}' title=Hapus onClick="return confirm('Hapus?');"><i class='fa fa-trash-o'></i></a>
 			</td>
 		</tr>
 		@empty

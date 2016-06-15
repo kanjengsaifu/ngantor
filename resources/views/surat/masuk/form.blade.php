@@ -1,8 +1,8 @@
 @extends('layouts.gui')
 
 @section('title')
-Kotak Surat
-<small>Surat Masuk</small>
+Surat Masuk
+<small>Formulir</small>
 @endsection
 
 
@@ -14,7 +14,7 @@ Kotak Surat
 		<div class='box-header'>
 			<h3 class='box-title'>{{ (isset($data->id) or !empty(old('id'))) ? 'Ubah' : 'Tambah' }}</h3>
 		</div>
-		<form method=post action="{{ url('surat/inbox/save') }}">
+		<form method=post action="{{ url('surat/masuk/save') }}">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<input type="hidden" name="id" value="{{ $data->id or old('id') }}">
 		<div class='box-body'>

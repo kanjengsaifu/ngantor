@@ -37,9 +37,14 @@ Route::group(['middleware' => 'auth'], function () {
 		//Inbox
 		Route::group(['prefix' => 'inbox'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\InboxController@index');
-			Route::get('form/{id?}', 'Surat\InboxController@form')->where('id', '[0-9]+');
-			Route::post('save', 'Surat\InboxController@save');
-			Route::get('delete/{id}', 'Surat\InboxController@delete')->where('id', '[0-9]+');
+		});
+
+		//Inbox
+		Route::group(['prefix' => 'masuk'], function () {
+			Route::match(['get', 'post'], '/', 'Surat\MasukController@index');
+			Route::get('form/{id?}', 'Surat\MasukController@form')->where('id', '[0-9]+');
+			Route::post('save', 'Surat\MasukController@save');
+			Route::get('delete/{id}', 'Surat\MasukController@delete')->where('id', '[0-9]+');
 		});
 
 	});

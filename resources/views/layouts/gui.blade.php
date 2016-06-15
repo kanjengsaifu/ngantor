@@ -72,6 +72,7 @@
 
 				<li class="header">SURAT</li>
 				<li class="{{ Request::is('surat/inbox*') ? 'active' : '' }}"><a href="{{ url('surat/inbox') }}"><i class="fa fa-envelope"></i> Kotak Surat</a></li>
+				<li class="{{ Request::is('surat/masuk*') ? 'active' : '' }}"><a href="{{ url('surat/masuk') }}"><i class="fa fa-envelope"></i> Surat Masuk</a></li>
             </ul>
 
         </section>
