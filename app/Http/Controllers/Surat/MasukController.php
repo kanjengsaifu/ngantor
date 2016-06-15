@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Surat;
 
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Models\Surat\Sifat;
