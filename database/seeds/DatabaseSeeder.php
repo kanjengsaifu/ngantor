@@ -117,6 +117,7 @@ class MsMasukTableSeeder extends Seeder {
 		$id_sifat = Sifat::where('name', '=', 'Umum')->firstOrFail();
 		$id_status = Status::where('type', '=', '1')->firstOrFail();
 		$id_user = User::where('email', '=', 'admin@ngantor.com')->firstOrFail();
+		$id_user_dua = User::where('email', '=', 'wirasto@ngantor.com')->firstOrFail();
 
         Masuk::create(array(
 			'nomor'=> 'S001',
@@ -134,6 +135,15 @@ class MsMasukTableSeeder extends Seeder {
 			'asal'=> 'Microsoft Antahberantah',
 			'id_status'=> $id_status->id,
 			'id_user'=> $id_user->id,
+		));
+
+		Masuk::create(array(
+			'nomor'=> 'S003',
+			'id_sifat'=> $id_sifat->id,
+			'perihal'=> 'Surat Penawaran',
+			'asal'=> 'Linux Antahberantah',
+			'id_status'=> $id_status->id,
+			'id_user'=> $id_user_dua->id,
 		));
     }
 }
