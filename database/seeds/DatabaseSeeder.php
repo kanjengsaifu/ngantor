@@ -124,6 +124,7 @@ class MsMasukTableSeeder extends Seeder {
 
         Masuk::create(array(
 			'nomor'=> 'S001',
+			'tgl'=> '2016-06-01',
 			'id_sifat'=> $id_sifat->id,
 			'perihal'=> 'Mencoba fitur surat masuk',
 			'asal'=> 'Olongia IT Solution',
@@ -133,6 +134,7 @@ class MsMasukTableSeeder extends Seeder {
 
 		Masuk::create(array(
 			'nomor'=> 'S002',
+			'tgl'=> '2016-06-01',
 			'id_sifat'=> $id_sifat->id,
 			'perihal'=> 'Tawaran Kerja Sama',
 			'asal'=> 'Microsoft Antahberantah',
@@ -142,6 +144,7 @@ class MsMasukTableSeeder extends Seeder {
 
 		Masuk::create(array(
 			'nomor'=> 'S003',
+			'tgl'=> '2016-05-28',
 			'id_sifat'=> $id_sifat->id,
 			'perihal'=> 'Surat Penawaran',
 			'asal'=> 'Linux Antahberantah',

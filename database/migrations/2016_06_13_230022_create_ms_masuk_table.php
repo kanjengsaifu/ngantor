@@ -15,6 +15,7 @@ class CreateMsMasukTable extends Migration
         Schema::create('ms_masuk', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('nomor')->unique();
+			$table->date('tgl');
 			$table->integer('id_sifat')->unsigned();
 			$table->string('asal');
 			$table->string('perihal');
