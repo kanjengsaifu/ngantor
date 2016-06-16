@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\KeluarController@index');
 			Route::get('form/{id?}', 'Surat\KeluarController@form')->where('id', '[0-9]+');
 			Route::post('save', 'Surat\KeluarController@save');
+			Route::get('delete/{id}', 'Surat\KeluarController@delete')->where('id', '[0-9]+');
 		});
 
 	});

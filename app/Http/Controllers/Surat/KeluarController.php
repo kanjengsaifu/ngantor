@@ -63,4 +63,20 @@ class KeluarController extends Controller
 		return redirect()->intended('surat/keluar');
 	}
 
+
+	function delete($id)
+	{
+		$del = Keluar::find($id);
+
+		try {
+			if ($del) {
+				$del->delete();
+			}
+
+		} catch (\Exception $ex) {
+		}
+
+		return redirect()->intended('surat/keluar');
+	}
+
 }
