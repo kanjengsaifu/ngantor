@@ -15,7 +15,7 @@ class CreateMsKeluarTable extends Migration
         Schema::create('ms_keluar', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('nomor')->unique();
-			$table->string('tgl')->unique();
+			$table->string('tgl');
 			$table->integer('id_sifat')->unsigned();
 			$table->string('perihal');
 			$table->integer('id_user')->unsigned();
