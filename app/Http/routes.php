@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
 		//Keluar
 		Route::group(['prefix' => 'keluar'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\KeluarController@index');
+			Route::get('form/{id?}', 'Surat\KeluarController@form')->where('id', '[0-9]+');
+			Route::post('save', 'Surat\KeluarController@save');
 		});
 
 	});
