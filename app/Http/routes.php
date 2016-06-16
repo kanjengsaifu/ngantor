@@ -42,12 +42,17 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::post('save_finish', 'Surat\InboxController@save_finish');
 		});
 
-		//Inbox
+		//Masuk
 		Route::group(['prefix' => 'masuk'], function () {
 			Route::match(['get', 'post'], '/', 'Surat\MasukController@index');
 			Route::get('form/{id?}', 'Surat\MasukController@form')->where('id', '[0-9]+');
 			Route::post('save', 'Surat\MasukController@save');
 			Route::get('delete/{id}', 'Surat\MasukController@delete')->where('id', '[0-9]+');
+		});
+
+		//Keluar
+		Route::group(['prefix' => 'keluar'], function () {
+			Route::match(['get', 'post'], '/', 'Surat\KeluarController@index');
 		});
 
 	});
