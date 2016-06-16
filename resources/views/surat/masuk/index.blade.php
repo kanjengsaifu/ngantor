@@ -26,6 +26,7 @@ Surat Masuk
 		<thead>
 		<tr>
 			<th>NOMOR</th>
+			<th>TANGGAL</th>
 			<th>SIFAT</th>
 			<th>ASAL</th>
 			<th>PERIHAL</th>
@@ -37,6 +38,7 @@ Surat Masuk
 		@forelse($data as $item)
 		<tr>
 			<td>{{ $item->nomor }}</td>
+			<td>{{ $item->tgl }}</td>
 			<td>{{ $item->sifat->name }}</td>
 			<td>{{ $item->asal }}</td>
 			<td>{{ $item->perihal }}</td>
@@ -56,7 +58,7 @@ Surat Masuk
 			</td>
 		</tr>
 		@empty
-		<tr><td colspan='7'>Masih kosong</td></tr>
+		<tr><td colspan='8'>Masih kosong</td></tr>
 		@endforelse
 		</table>
 	</div>

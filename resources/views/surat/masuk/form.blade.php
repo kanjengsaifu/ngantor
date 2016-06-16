@@ -28,6 +28,16 @@ Surat Masuk
 				<input type=text name='nomor' class='form-control' value="{{ $data->nomor or old('nomor') }}">
 			</div>
 
+			@if ($errors->has('tgl'))
+			<div class="form-group has-warning">
+			@else
+			<div class="form-group">
+			@endif
+				<label>Tanggal</label>
+				@if ($errors->has('tgl')) <em class="text-muted">{{ $errors->first('tgl') }}</em>@endif
+				<input type="text" name=tgl class="form-control" value="{{ $data->tgl or old('tgl') }}">
+            </div>
+
 			@if ($errors->has('id_sifat'))
 			<div class="form-group has-warning">
 			@else
@@ -77,3 +87,11 @@ Surat Masuk
 
 @endsection
 
+
+@section('script')
+<script languange='javascript'>
+$(function () {
+	$("input[name=tgl]").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
+});
+</script>
+@endsection

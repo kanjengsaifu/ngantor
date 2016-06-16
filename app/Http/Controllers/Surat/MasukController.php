@@ -47,6 +47,7 @@ class MasukController extends Controller
 				$u = new Masuk;
 			}
 			$u->nomor = $request->input('nomor');
+			$u->tgl = $request->input('tgl');
 			$u->id_sifat = $request->input('id_sifat');
 			$u->asal = $request->input('asal');
 			$u->perihal = $request->input('perihal');

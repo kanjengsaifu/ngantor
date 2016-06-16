@@ -15,6 +15,7 @@ class Masuk extends Model
 	protected static $valid_message = [
 			'nomor.required' => 'Masukkan nomor surat',
 			'nomor.unique' => 'Nomor surat sudah ada',
+			'tgl.required' => 'Masukkan tanggal surat',
 			'id_sifat.required' => 'Pilih sifat surat',
 			'asal.required' => 'Masukkan asal surat',
 			'perihal.required' => 'Masukkan perihal surat',
@@ -62,6 +63,7 @@ class Masuk extends Model
 	{
 		return [
 			'nomor' => 'required|unique:ms_masuk'. ($this->id ? ",id,$this->id" : ''),
+			'tgl' => 'required',
 			'id_sifat' => 'required',
 			'asal' => 'required',
 			'perihal' => 'required',
