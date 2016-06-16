@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Surat\Sifat;
 use App\Models\Surat\Status;
 use App\Models\Surat\Masuk;
+use App\Models\Surat\Keluar;
 
 
 class DatabaseSeeder extends Seeder
@@ -32,6 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MsSifatTableSeeder::class);
         $this->call(MsStatusTableSeeder::class);
         $this->call(MsMasukTableSeeder::class);
+        $this->call(MsMasukTableSeeder::class);
+        $this->call(MsKeluarTableSeeder::class);
 
         Model::reguard();
     }
@@ -144,6 +147,34 @@ class MsMasukTableSeeder extends Seeder {
 			'asal'=> 'Linux Antahberantah',
 			'id_status'=> $id_status->id,
 			'id_user'=> $id_user_dua->id,
+		));
+    }
+}
+
+
+class MsKeluarTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('ms_keluar')->delete();
+
+		$id_sifat = Sifat::where('name', '=', 'Umum')->firstOrFail();
+		$id_user = User::where('email', '=', 'admin@ngantor.com')->firstOrFail();
+
+        Keluar::create(array(
+			'nomor'=> 'SK001',
+			'tgl'=> '2016-06-01',
+			'id_sifat'=> $id_sifat->id,
+			'perihal'=> 'Mencoba fitur surat keluar',
+			'id_user'=> $id_user->id,
+		));
+
+		Keluar::create(array(
+			'nomor'=> 'SK002',
+			'tgl'=> '2016-06-02',
+			'id_sifat'=> $id_sifat->id,
+			'perihal'=> 'Pemberitahuan rapat bersama',
+			'id_user'=> $id_user->id,
 		));
     }
 }
